@@ -1,0 +1,26 @@
+{
+  "name": "tdd-byexample",
+  "version": "1.0.0",
+  "description": "Test Driven Development by Example by Kent Beck",
+  "main": "index.js",
+  "repository": {},
+  "author": "jesse mazzella",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.10",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "mocha-typescript": "^1.0.23",
+    "typescript": "^2.2.1"
+  },
+  "devDependencies": {
+    "tslint": "^4.5.1"
+  },
+  "scripts": {
+    "dev-test-watch": "mocha-typescript-watch",
+    "test": "tsc -p . && mocha",
+    "prepublish": "tsc -p ."
+  }
+}
