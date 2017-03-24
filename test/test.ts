@@ -2,17 +2,24 @@ import { suite, test, slow, timeout, skip, only } from "mocha-typescript";
 import * as chai from "chai";
 import Dollar from "../Dollar";
 import Franc from "../Franc";
+
 @suite class DollarTests {
     @test "testMultiplication"() {
         let five: Dollar = new Dollar(5);
         let ten: Dollar = five.times(2);
-        chai.assert(10 === ten.getAmount(), `${ten.getAmount()} is not equivalent to 10`);
+        chai.expect(ten.getAmount()).to.equal(10);
     }
 
     @test "testEquals"() {
         let dollar = new Dollar(4);
         let dollar2 = new Dollar(4);
-        chai.assert(dollar.getAmount() === dollar2.getAmount(), `${dollar.getAmount()} is not equivalent to ${dollar2.getAmount()}`);
+        chai.expect(dollar).to.deep.equal(dollar2);
+    }
+
+    @test "testNotEquals"() {
+        let dollar = new Dollar(1);
+        let dollar2 = new Dollar(2);
+        chai.expect(dollar).to.not.deep.equal(dollar2);
     }
 }
 
@@ -20,6 +27,18 @@ import Franc from "../Franc";
     @test "testMultiplication"() {
         let five: Franc = new Franc(5);
         let ten: Franc = five.times(2);
-        chai.assert(10 === ten.getAmount(), `${ten.getAmount()} is not equivalent to 10`);
+        chai.expect(ten.getAmount()).to.equal(10);
+    }
+
+    @test "testEquals"() {
+        let franc = new Franc(4);
+        let franc2 = new Franc(4);
+        chai.expect(franc).to.deep.equal(franc2);
+    }
+
+    @test "testNotEquals"() {
+        let franc = new Franc(1);
+        let franc2 = new Franc(2);
+        chai.expect(franc).to.not.deep.equal(franc2);
     }
 }
